@@ -28,14 +28,12 @@ class User {
     }
   }
 
-  static async findOne(payload) {
+  static async findOne(email) {
     try {
-      console.log(payload);
-      // const { email, password } = payload;
-      // const result = await this.findOne({
-      //   email,
-      //   password,
-      // });
+      const users = await this.users();
+      const result = await users.findOne({
+        email,
+      });
       return result;
     } catch (error) {
       throw error;
